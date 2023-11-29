@@ -44,8 +44,8 @@ input {
     margin-top: 5px;
 }
 .Btn {
-    width: 130px;
-    height: 40px;
+    width: 100%;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,7 +61,6 @@ input {
     padding: 15px;
     border: 2px solid #b1f202;
     border-radius: 5px;
-    width: 100%;
     font-size: 16px;
 }
 
@@ -115,4 +114,38 @@ h1 {
 #qrcode {
     text-align: center;
     padding: 20px;
+}
+
+.coolinput {
+    display: flex;
+    flex-direction: column;
+    width: 105%;
+    position: static;
+    margin-bottom: 25px; /* Adjusted margin*/
+}
+
+.coolinput label.text {
+    font-size: 16px;
+    color: #b1f202;
+    font-weight: 600;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    background: #fff;
+    width: fit-content;
+}
+
+.coolinput input[type=text].input,
+.coolinput input[type=number].input {
+    padding: 15px 15px;
+    font-size: 0.75rem;
+    border: 2px #b1f202 solid;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.coolinput input[type=text].input:focus,
+.coolinput input[type=number].input:focus {
+    outline: none;
 }
