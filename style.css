@@ -7,10 +7,11 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #fff;
-opacity: 1;
-background-image:  radial-gradient(#b1f202 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#b1f202 0.8500000000000001px, #fff 0.8500000000000001px);
-background-size: 34px 34px;
-background-position: 0 0,17px 17px;
+    opacity: 1;
+    background-image: radial-gradient(#b1f202 0.8500000000000001px, transparent 0.8500000000000001px),
+        radial-gradient(#b1f202 0.8500000000000001px, #fff 0.8500000000000001px);
+    background-size: 34px 34px;
+    background-position: 0 0, 17px 17px;
 }
 
 .container {
@@ -27,8 +28,13 @@ background-position: 0 0,17px 17px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(110, 242, 2, 0.5);
-    min-width: 400px;
-    width: 100%;
+    width: 480px;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 .input-container {
@@ -36,13 +42,14 @@ background-position: 0 0,17px 17px;
 }
 
 input {
-    width: calc(100% - 20px);
+    width: 100%;
     padding: 15px;
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 5px;
 }
+
 .Btn {
     width: 100%;
     height: 48px;
@@ -105,7 +112,7 @@ h1 {
 .result-area {
     margin-left: 30px;
     flex-shrink: 0;
-    max-width: 400px;
+    max-width: 522px;
     width: 100%;
     box-shadow: 0 0 20px rgba(110, 242, 2, 0.5);
     border-radius: 10px;
@@ -113,15 +120,15 @@ h1 {
 
 #qrcode {
     text-align: center;
-    padding: 20px;
+    padding: 80px 41px 80px 41px;
 }
 
 .coolinput {
     display: flex;
     flex-direction: column;
-    width: 105%;
+    width: fit-content;
     position: static;
-    margin-bottom: 25px; /* Adjusted margin*/
+    margin-bottom: 40px; /* Adjusted margin*/
 }
 
 .coolinput label.text {
@@ -133,7 +140,6 @@ h1 {
     margin: 0 0 0 7px;
     padding: 0 3px;
     background: #fff;
-    width: fit-content;
 }
 
 .coolinput input[type=text].input,
@@ -143,9 +149,99 @@ h1 {
     border: 2px #b1f202 solid;
     border-radius: 5px;
     background: #fff;
+    min-width: 462px;
 }
 
 .coolinput input[type=text].input:focus,
 .coolinput input[type=number].input:focus {
     outline: none;
 }
+
+.toggle-button-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.button.r {
+    position: relative;
+    top: 50%;
+    width: 74px;
+    height: 36px;
+    margin: -20px auto 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    padding-left: 1px;
+    padding-right: 1px;
+    box-shadow: inset 0px 0px 8px #8bf436;
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs {
+    z-index: 2;
+}
+
+.layer {
+    width: 100%;
+    background-color: #b1f202;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.button.r .layer {
+    border-radius: 100px;
+}
+
+#button-3 .knobs:before {
+    content: "VPA";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #b1f202;
+    border-radius: 50%;
+    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+}
+
+#button-3 .checkbox:active + .knobs:before {
+    width: 46px;
+    border-radius: 100px;
+}
+
+#button-3 .checkbox:checked:active + .knobs:before {
+    margin-left: -26px;
+}
+
+#button-3 .checkbox:checked + .knobs:before {
+    content: "AC";
+    left: 42px;
+    background-color: #f44336;
+}
+
+#button-3 .checkbox:checked ~ .layer {
+    background-color: #fcebeb;
+}
+
+#acInputs {
+    display: none;
+}
+
+
